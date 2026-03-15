@@ -18,8 +18,8 @@ curr_x, curr_y = 0.7, 0.8  # 随机丢在半山腰
 learning_rate = 0.005      # 步长：走得太快会滑出山谷，太慢则太费时
 history = []
 
-# 模拟 100 步的学习过程
-for _ in range(100):
+# 模拟 1000 步的学习过程
+for _ in range(1000):
     history.append((curr_x, curr_y, surface_func(curr_x, curr_y)))
     gx, gy = gradient(curr_x, curr_y)
     curr_x -= learning_rate * gx

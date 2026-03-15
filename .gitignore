@@ -1,0 +1,11 @@
+# 虚拟环境
+venv/
+env/
+ENV/
+# VS Code 配置
+.vscode/
+# Python 缓存
+__pycache__/
+*.pyc
+# 其他
+.DS_Store

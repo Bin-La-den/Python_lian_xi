@@ -1,6 +1,7 @@
 import sys
 import platform
 import os
+import time
 
 print("当前 Python 路径:", sys.executable)
 print("操作系统信息:", platform.platform())
@@ -11,3 +12,5 @@ print(platform.machine())
 print(platform.node())
 print(platform.processor())
 print(platform.python_build())
+print(platform.uname())
+print(time.asctime())

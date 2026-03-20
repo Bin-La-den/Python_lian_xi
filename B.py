@@ -8,13 +8,13 @@ plt.rcParams['font.sans-serif'] = ['SimHei']   # 或 ['Microsoft YaHei']
 plt.rcParams['axes.unicode_minus'] = False    # 解决负号显示问题
 
 # 生成模拟数据
-np.random.seed(42)
+np.random.seed(100)
 X = np.linspace(0, 10, 100).reshape(-1, 1)
 true_intercept, true_slope = 1.0, 2.5
 y = true_intercept + true_slope * X.ravel() + np.random.normal(scale=2.0, size=100)
 
 # 划分训练/测试集
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=100)
 
 # 训练模型
 model = LinearRegression()

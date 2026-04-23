@@ -1,11 +1,11 @@
-当前 Python 路径: C:\Miniforge\python.exe
+当前 Python 路径: C:\miniforge\python.exe
 操作系统信息: Windows-11-10.0.26200-SP0
 C:\Python_lian_xi
 nt Windows 11 10.0.26200
 ('64bit', 'WindowsPE')
 AMD64
-Donald_Trump
+DESKTOP-03QB9AE
 Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
 ('main', 'Feb  5 2026 05:41:12')
-uname_result(system='Windows', node='Donald_Trump', release='11', version='10.0.26200', machine='AMD64')
-Mon Apr  6 19:05:58 2026
+uname_result(system='Windows', node='DESKTOP-03QB9AE', release='11', version='10.0.26200', machine='AMD64')
+Fri Apr 24 00:58:55 2026

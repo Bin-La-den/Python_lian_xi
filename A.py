@@ -15,3 +15,6 @@ with open('output.txt', 'w', encoding='utf-8') as f:
     f.write(str(platform.python_build()) + "\n")
     f.write(str(platform.uname()) + "\n")
     f.write(time.asctime() + "\n")
+    f.write("文件系统编码格式：" + sys.getfilesystemencoding() + "\n")
+    f.write("用户主目录：" + os.environ['HOMEPATH'] + "\n")
+    f.write("当前用户：" + os.environ['USERNAME'] + "\n")

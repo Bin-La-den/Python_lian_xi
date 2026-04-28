@@ -3,8 +3,9 @@ import platform
 import os
 import time
 import cpuinfo
+import getpass
 
-with open('output.txt', 'w', encoding='utf-8') as f:
+with open('output_Fedora.txt', 'w', encoding='utf-8') as f:
     f.write("当前 Python 路径: " + sys.executable + "\n")
     f.write("操作系统信息: " + platform.platform() + "\n")
     f.write("当前工作目录的绝对路径: " + os.path.abspath(os.getcwd()) + "\n")
@@ -17,7 +18,7 @@ with open('output.txt', 'w', encoding='utf-8') as f:
     f.write("系统名称: " + str(platform.uname()) + "\n")
     f.write("当前时间: " + time.asctime() + "\n")
     f.write("文件系统编码格式：" + sys.getfilesystemencoding() + "\n")
-    f.write("用户主目录：" + os.environ['HOMEPATH'] + "\n")
-    f.write("当前用户：" + os.environ['USERNAME'] + "\n")
+    f.write("用户主目录：" + os.path.expanduser("~") + "\n")
+    f.write("当前用户: " + getpass.getuser() + "\n")
     f.write("CPU 信息: " + cpuinfo.get_cpu_info()['brand_raw'] + "\n")
     f.write("架构信息: " + cpuinfo.get_cpu_info()['arch'] + "\n")

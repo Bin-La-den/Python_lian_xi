@@ -5,7 +5,8 @@ import time
 import cpuinfo
 import getpass
 
-with open('output_Fedora.txt', 'w', encoding='utf-8') as f:
+#with open('output_Fedora.txt', 'w', encoding='utf-8') as f:
+with open('output_Windows.txt', 'w', encoding='utf-8') as f:
     f.write("当前 Python 路径: " + sys.executable + "\n")
     f.write("操作系统信息: " + platform.platform() + "\n")
     f.write("当前工作目录的绝对路径: " + os.path.abspath(os.getcwd()) + "\n")

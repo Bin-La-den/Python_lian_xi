@@ -1,0 +1,16 @@
+当前 Python 路径: C:\miniforge\envs\ml_env\python.exe
+操作系统信息: Windows-11-10.0.26200-SP0
+当前工作目录的绝对路径: C:\Python_lian_xi
+系统信息: nt Windows 11 10.0.26200
+架构信息: ('64bit', 'WindowsPE')
+机器类型: AMD64
+计算机主机名: DESKTOP-03QB9AE
+处理器信息: Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+Python 构建信息: ('main', 'Mar  5 2026 16:36:12')
+系统名称: uname_result(system='Windows', node='DESKTOP-03QB9AE', release='11', version='10.0.26200', machine='AMD64')
+当前时间: Wed Apr 29 19:49:36 2026
+文件系统编码格式：utf-8
+用户主目录：C:\Users\Texer
+当前用户: Texer
+CPU 信息: 13th Gen Intel(R) Core(TM) i5-13500H
+架构信息: X86_64

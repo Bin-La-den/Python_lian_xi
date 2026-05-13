@@ -1,14 +1,14 @@
 当前 Python 路径: /home/laden/miniforge3/envs/ml_env/bin/python
-操作系统信息: Linux-6.19.14-300.fc44.x86_64-x86_64-with-glibc2.43
+操作系统信息: Linux-7.0.4-200.fc44.x86_64-x86_64-with-glibc2.43
 当前工作目录的绝对路径: /home/laden/Python_lian_xi
-系统信息: posix Linux 6.19.14-300.fc44.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Apr 23 15:17:50 UTC 2026
+系统信息: posix Linux 7.0.4-200.fc44.x86_64 #1 SMP PREEMPT_DYNAMIC Fri May  8 16:02:43 UTC 2026
 架构信息: ('64bit', 'ELF')
 机器类型: x86_64
 计算机主机名: bogon
 处理器信息: 
 Python 构建信息: ('main', 'Mar  5 2026 16:50:00')
-系统名称: uname_result(system='Linux', node='bogon', release='6.19.14-300.fc44.x86_64', version='#1 SMP PREEMPT_DYNAMIC Thu Apr 23 15:17:50 UTC 2026', machine='x86_64')
-当前时间: Mon May 11 11:22:57 2026
+系统名称: uname_result(system='Linux', node='bogon', release='7.0.4-200.fc44.x86_64', version='#1 SMP PREEMPT_DYNAMIC Fri May  8 16:02:43 UTC 2026', machine='x86_64')
+当前时间: Wed May 13 19:59:48 2026
 文件系统编码格式：utf-8
 用户主目录：/home/laden
 当前用户: laden

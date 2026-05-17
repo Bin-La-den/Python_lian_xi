@@ -23,3 +23,6 @@ with open('output_Fedora.txt', 'w', encoding='utf-8') as f:
     f.write("当前用户: " + getpass.getuser() + "\n")
     f.write("CPU 信息: " + cpuinfo.get_cpu_info()['brand_raw'] + "\n")
     f.write("架构信息: " + cpuinfo.get_cpu_info()['arch'] + "\n")
+    f.write("位数: " + str(cpuinfo.get_cpu_info()['bits']) + "\n")
+    f.write("CPU 频率: " + str(cpuinfo.get_cpu_info()['hz_advertised_friendly']) + "\n")
+    f.write("CPU 物理核心数: " + str(cpuinfo.get_cpu_info()['count']) + "\n")

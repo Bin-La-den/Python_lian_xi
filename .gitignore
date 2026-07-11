@@ -1,5 +1,6 @@
 # 虚拟环境
 venv/
+.venv*/
 env/
 ENV/
 # VS Code 配置

@@ -1,0 +1,73 @@
+name: 自动生成变更日志
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  changelog:
+    # 如果这次 push 是 Action 自己触发的，跳过，避免死循环
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 检出代码（含完整历史）
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 生成 CHANGELOG
+        run: |
+          echo "# 变更日志" > /tmp/new_entries.md
+          echo "" >> /tmp/new_entries.md
+
+          # 如果 CHANGELOG.md 不存在，创建一个
+          if [ ! -f CHANGELOG.md ]; then
+            echo "# 变更日志" > CHANGELOG.md
+            echo "" >> CHANGELOG.md
+          fi
+
+          # 获取本次 push 的提交范围
+          # 找出上次成功运行后的最新提交
+          BEFORE_SHA=${{ github.event.before }}
+          AFTER_SHA=${{ github.event.after }}
+
+          echo "本次 push 涉及 ${BEFORE_SHA:0:7} → ${AFTER_SHA:0:7}"
+          echo "" >> /tmp/new_entries.md
+          echo "## $(date '+%Y-%m-%d %H:%M')" >> /tmp/new_entries.md
+          echo "" >> /tmp/new_entries.md
+
+          # 列出本次 push 的所有提交
+          git log ${BEFORE_SHA}..${AFTER_SHA} --pretty=format:"- %s (%an)" 2>/dev/null >> /tmp/new_entries.md || \
+            git log -1 --pretty=format:"- %s (%an)" >> /tmp/new_entries.md
+
+          # 检查是否有新的提交记录
+          if grep -q "\- " /tmp/new_entries.md; then
+            echo "" >> /tmp/new_entries.md
+            echo "" >> /tmp/new_entries.md
+
+            # 将新内容插入到现有 CHANGELOG 开头（标题后面）
+            HEADER=$(head -2 CHANGELOG.md)
+            BODY=$(tail -n +3 CHANGELOG.md)
+            echo "$HEADER" > CHANGELOG.md
+            cat /tmp/new_entries.md >> CHANGELOG.md
+            echo "$BODY" >> CHANGELOG.md
+
+            echo "✅ CHANGELOG 已更新"
+          else
+            echo "⚠️ 没有新的提交记录，跳过"
+            exit 0
+          fi
+
+      - name: 提交 CHANGELOG
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md
+          git diff --cached --quiet || git commit -m "📝 自动更新 CHANGELOG [skip ci]"
+          git push

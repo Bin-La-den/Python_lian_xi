@@ -1,69 +1,52 @@
 # Python 练习
 
-Python 数据分析与可视化练习项目，涵盖数据统计、地理信息可视化、科学绘图等。
+Python 数据分析与可视化练习项目，涵盖科学绘图、机器学习、系统信息采集等。
 
 ## 项目结构
 
 ```
 Python_lian_xi/
-├── analyze_data.py          # 省份数据统计 → 柱状图
-├── map_china.py             # 中国地图标注（Albers 投影 + 南海附图）
-├── plot_line_chart.py       # 电池状态折线图
 ├── A.py                     # 系统信息采集
 ├── B.py                     # 线性回归示例
+├── test.ipynb               # 正弦曲线噪声可视化练习
+├── plot_line_chart.ipynb    # 电池状态折线图
 ├── data.xlsx                # 省份收件人数据
 ├── Test.xlsx / Test2.xlsx   # 测试数据
-├── environment.yml          # Conda 环境配置
+├── output_Fedora.txt        # A.py 在 Fedora/Linux 下的输出
+├── output_Windows.txt       # A.py 在 Windows 下的输出
+├── CHANGELOG.md             # 变更日志
 └── .github/workflows/       # GitHub Actions 自动生成 CHANGELOG
 ```
 
 ## 环境配置
 
-```bash
-# 创建 conda 环境
-conda env create -f environment.yml
+使用 conda（miniforge3）环境 `ml_env`，Python 3.12：
 
+```bash
 # 激活环境
 conda activate ml_env
+
+# 安装依赖
+pip install numpy matplotlib pandas scikit-learn py-cpuinfo jupyter
 ```
 
-主要依赖：Python 3.12、NumPy、Matplotlib、Pandas、scikit-learn
+主要依赖：Python 3.12、NumPy、Matplotlib、Pandas、scikit-learn、py-cpuinfo、Jupyter
 
 ## 各脚本说明
 
-### analyze_data.py — 省份数据统计
+### A.py — 系统信息采集
 
-读取 `data.xlsx` 中的收件人省份数据，按省份统计数量，生成横向柱状图。
-
-```bash
-python analyze_data.py
-```
-
-输出：`province_bar.png`
-
-### map_china.py — 中国地图可视化
-
-从阿里云 DataV 获取中国 GeoJSON 数据，使用 Albers 等面积圆锥投影（中国地图标准投影），在地图上标注数据覆盖的省份，包含南海诸岛附图。
+采集当前运行环境的系统信息（Python 路径、操作系统、CPU 信息等），写入文本文件。通过注释切换输出文件名：
 
 ```bash
-python map_china.py
+python A.py
 ```
 
-输出：`china_province_map.pdf`、`china_province_map.png`
-
-### plot_line_chart.py — 电池状态折线图
-
-读取 `Test2.xlsx`，以电压为自变量，四组电池状态数据为因变量，绘制多系列折线图。
-
-```bash
-python plot_line_chart.py
-```
-
-输出：`电池状态折线图.pdf`
+输出：`output_Fedora.txt`（Linux）或 `output_Windows.txt`（Windows，需取消代码中的注释切换）
 
 ### B.py — 线性回归
 
-使用 scikit-learn 生成模拟数据、训练线性回归模型并进行可视化。
+使用 scikit-learn 生成模拟数据、训练线性回归模型，输出截距、系数、MSE、R² 等评估指标并绘制拟合结果。
 
 ```bash
 python B.py
@@ -71,9 +54,15 @@ python B.py
 
 输出：`线性回归结果.pdf`
 
-### A.py — 系统信息采集
+> 注意：`B.py` 中保存路径为 Windows 硬编码路径（`C:\Python_lian_xi\`），在 Linux 下运行会报错，需改为相对路径。
 
-采集当前运行环境的系统信息（OS、Python 路径、CPU 等），输出到文本文件。
+### test.ipynb — 正弦曲线可视化练习
+
+生成带噪声的正弦数据，用散点图展示观测数据与真实规律（y = sin(x)）的对比，练习 Matplotlib 绘图与中文字体配置。
+
+### plot_line_chart.ipynb — 电池状态折线图
+
+读取 `Test2.xlsx`，以电压为自变量，四组电池状态数据为因变量，绘制多系列折线图（遵循 dataviz 设计规范）。
 
 ## 变更日志
 
